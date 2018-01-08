@@ -1,0 +1,17 @@
+
+- apiVersion: v1
+  kind: policy
+  metadata:
+    name: wsaaa1
+  spec:
+    selector: calico/k8s_ns == 'wsaaa1'
+    ingress:
+    - action: allow
+      source:
+        selector: calico/k8s_ns == 'wsaaa1'
+    - action: deny
+      source:
+        selector: calico/k8s_ns != 'wsaaa1'
+    - action: allow
+    egress:
+    - action: allow
